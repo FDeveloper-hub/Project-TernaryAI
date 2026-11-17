@@ -28,10 +28,11 @@ AVX-512 en x86-64 y NEON en ARM cuando están disponibles.
 
 ## Instalación
 
-Hace falta Python ≥ 3.13 y NumPy ≥ 2.4. Aún no hay paquetes publicados en PyPI. Hay dos formas de instalar:
+Hace falta Python ≥ 3.10 y NumPy ≥ 1.21.6. Esta es una versión alfa (1.0.0a1), así que `pip` necesita la opción `--pre`. Hay tres formas de instalar:
 
-- **Wheel** (Linux con glibc ≥ 2.34): `pip install ternaryai-1.0.0a1-py3-none-manylinux_2_34_x86_64.whl`. Incluye la librería nativa y las fuentes en C que necesita; no hace falta compilador.
-- **Desde el código fuente** (cualquier plataforma con compilador C11 y `make`, por ejemplo Termux en Android): `pip install .` desde esta carpeta, o desde la distribución de fuentes (`ternaryai-1.0.0a1.tar.gz`). La instalación ejecuta el Makefile.
+- **Desde PyPI:** `pip install --pre ternaryai`. En Linux x86-64 con glibc ≥ 2.34 instala un wheel ya compilado (incluye la librería nativa y las fuentes en C que necesita; no hace falta compilador). En otras plataformas, por ejemplo Termux en Android, pip lo compila desde el código fuente, y para eso hacen falta un compilador C11 y `make`.
+- **Wheel desde GitHub:** descarga `ternaryai-1.0.0a1-py3-none-manylinux_2_34_x86_64.whl` desde la página de [Releases](https://github.com/FDeveloper-hub/Project-TernaryAI/releases) e instálalo con `pip install` seguido del nombre del archivo.
+- **Desde el código fuente:** `pip install .` desde un clon de este repositorio. La instalación ejecuta el Makefile.
 
 Para trabajar en la propia librería, se compila en el sitio y se usa el paquete desde el código fuente:
 
@@ -41,7 +42,7 @@ export PYTHONPATH=$PWD/python        # o: pip install -e .
 python3 -c "import ternaryai as tn; print(tn.__name__, 'ok')"
 ```
 
-Probado con Python 3.13 y NumPy 2.4 y 2.5, en Linux x86-64, y en ARMv7 (Termux en un dispositivo ARMv7 de 32 bits, y bajo qemu). No se ha probado en Windows ni en macOS.
+Probado en Linux x86-64 con Python 3.10, 3.11, 3.12 y 3.13 y NumPy 1.21.6, 1.24.4, 2.2.6, 2.4.6 y 2.5.5, y en ARMv7 (Termux en un dispositivo ARMv7 de 32 bits, y bajo qemu). No se ha probado en Windows ni en macOS.
 `TERNARYAI_NO_AVX512=1` / `TERNARYAI_NO_NEON=1` fuerzan el núcleo escalar; `TERNARYAI_NO_VNNI=1` conserva AVX-512 pero no usa el forward entero con VNNI (el resultado es idéntico bit a bit).
 
 ## Ejemplo: de un dataset a un modelo que conversa

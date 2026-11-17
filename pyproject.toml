@@ -8,13 +8,16 @@ version = "1.0.0a1"
 description = "Neural networks with strictly ternary weights (-1, 0, +1), computed in C"
 readme = "README.md"
 authors = [{name = "FDeveloper-hub"}]
-requires-python = ">=3.13"
+requires-python = ">=3.10"
 keywords = ["ternary", "ternaryai", "ternary neural-network"]
-dependencies = ["numpy>=2.4"]
+dependencies = ["numpy>=1.21.6"]
 license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE"]
 classifiers = [
     "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Programming Language :: C",
     "Operating System :: POSIX :: Linux",

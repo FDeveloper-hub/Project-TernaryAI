@@ -1,6 +1,6 @@
 # TernaryAI
 
-*Versión en español: [LEEME.md](LEEME.md)* · *Full syntax reference: [docs/MANUAL.en.md](docs/MANUAL.en.md)*
+*Versión en español: [LEEME.md](https://github.com/FDeveloper-hub/Project-TernaryAI/blob/main/LEEME.md)* · *Full syntax reference: [docs/MANUAL.en.md](https://github.com/FDeveloper-hub/Project-TernaryAI/blob/main/docs/MANUAL.en.md)*
 
 Neural networks whose weights are strictly **−1, 0 or +1**, with the computation in **C11** and a Python interface (`import ternaryai`).
 Built for small devices: it trains and generates on a 2018 low-end Android device (32-bit ARMv7, ~1 GB of RAM) and takes advantage of
@@ -28,10 +28,11 @@ AVX-512 on x86-64 and NEON on ARM when they are available.
 
 ## Installation
 
-You need Python ≥ 3.13 and NumPy ≥ 2.4. There are no packages on PyPI yet. Two ways to install:
+You need Python ≥ 3.10 and NumPy ≥ 1.21.6. This is an alpha release (1.0.0a1), so `pip` needs the `--pre` flag. Three ways to install:
 
-- **Wheel** (Linux glibc ≥ 2.34): `pip install ternaryai-1.0.0a1-py3-none-manylinux_2_34_x86_64.whl`. The native library and the C sources it needs are inside; no compiler required.
-- **From source** (any platform with a C11 compiler and `make`, for example Termux on Android): `pip install .` from this folder, or from the source distribution (`ternaryai-1.0.0a1.tar.gz`). The build runs the Makefile.
+- **From PyPI:** `pip install --pre ternaryai`. On Linux x86-64 with glibc ≥ 2.34 it installs a prebuilt wheel (the native library and the C sources it needs are inside; no compiler required). On other platforms, for example Termux on Android, pip builds it from source, which needs a C11 compiler and `make`.
+- **Wheel from GitHub:** download `ternaryai-1.0.0a1-py3-none-manylinux_2_34_x86_64.whl` from the [Releases](https://github.com/FDeveloper-hub/Project-TernaryAI/releases) page and install it with `pip install` followed by the file name.
+- **From source:** `pip install .` from a clone of this repository. The build runs the Makefile.
 
 To work on the library itself, build it in place and use the package from the source tree:
 
@@ -41,7 +42,7 @@ export PYTHONPATH=$PWD/python        # or: pip install -e .
 python3 -c "import ternaryai as tn; print(tn.__name__, 'ok')"
 ```
 
-Tested with Python 3.13 and NumPy 2.4 and 2.5, on Linux x86-64, and on ARMv7 (Termux on a 32-bit ARMv7 device, and under qemu). Not tested on Windows or macOS.
+Tested on Linux x86-64 with Python 3.10, 3.11, 3.12 and 3.13 and NumPy 1.21.6, 1.24.4, 2.2.6, 2.4.6 and 2.5.5, and on ARMv7 (Termux on a 32-bit ARMv7 device, and under qemu). Not tested on Windows or macOS.
 `TERNARYAI_NO_AVX512=1` / `TERNARYAI_NO_NEON=1` force the scalar kernel; `TERNARYAI_NO_VNNI=1` keeps AVX-512 but skips the VNNI integer forward (the result is bit-identical either way).
 
 ## Example: from a dataset to a model that talks
@@ -163,4 +164,4 @@ make test-python         # Python tests (builds the library first)
 
 ## License
 
-Apache License 2.0. Full text in [`LICENSE`](LICENSE) and notices in [`NOTICE`](NOTICE). Copyright 2026 FDeveloper-hub.
+Apache License 2.0. Full text in [`LICENSE`](https://github.com/FDeveloper-hub/Project-TernaryAI/blob/main/LICENSE) and notices in [`NOTICE`](https://github.com/FDeveloper-hub/Project-TernaryAI/blob/main/NOTICE). Copyright 2026 FDeveloper-hub.
