@@ -1,0 +1,7 @@
+TernaryAI (ternary_c)
+Copyright 2026 FDeveloper-hub
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Third-party components:
+  include/vulkan/*  Copyright The Khronos Group Inc., SPDX-License-Identifier: Apache-2.0

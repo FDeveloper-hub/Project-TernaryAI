@@ -1,0 +1,7 @@
+include Makefile LICENSE NOTICE README.md LEEME.md
+include docs/MANUAL.md docs/MANUAL.en.md tests/test_manual.py tests/test_bits.py
+recursive-include src *.c *.h *.map
+recursive-include include *.h
+recursive-include python/ternaryai *.py
+prune python/tests
+global-exclude *.o *.so *.pyc __pycache__

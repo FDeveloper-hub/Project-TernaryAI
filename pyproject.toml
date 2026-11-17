@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ternaryai"
+version = "1.0.0a1"
+description = "Neural networks with strictly ternary weights (-1, 0, +1), computed in C"
+readme = "README.md"
+authors = [{name = "FDeveloper-hub"}]
+requires-python = ">=3.13"
+keywords = ["ternary", "ternaryai", "ternary neural-network"]
+dependencies = ["numpy>=2.4"]
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: C",
+    "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+Homepage = "https://github.com/FDeveloper-hub/Project-TernaryAI"
+Repository = "https://github.com/FDeveloper-hub/Project-TernaryAI"
+Issues = "https://github.com/FDeveloper-hub/Project-TernaryAI/issues"
+
+[tool.setuptools]
+package-dir = {"" = "python"}
+packages = ["ternaryai"]
+include-package-data = false

@@ -1,0 +1,19 @@
+# Compilados
+*.o
+*.so
+*.a
+*.pyc
+__pycache__/
+
+# Empaquetado (se generan al construir)
+build/
+dist/
+*.egg-info/
+PKG-INFO
+
+# Ejecutables de tests y benchmarks generados por make (sin extensión)
+tests/*
+!tests/*.c
+!tests/*.h
+!tests/*.py
+!tests/modelos_prueba/

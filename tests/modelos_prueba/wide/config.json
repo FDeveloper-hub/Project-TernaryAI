@@ -1,0 +1,172 @@
+{
+  "format": "ternary",
+  "format_version": 2,
+  "checkpoint": false,
+  "input_shape": [320],
+  "layers": [
+    {
+      "name": "layers.0",
+      "type": "embedding",
+      "activation": "uint8",
+      "config": {
+        "vocab_size": 128,
+        "embed_dim": 128,
+        "seq_len": 320
+      }
+    },
+    {
+      "name": "layers.1",
+      "type": "residual",
+      "activation": "uint8",
+      "config": {
+        "layers": [
+          {
+            "name": "layers.1.0",
+            "type": "rmsnorm",
+            "activation": "uint8",
+            "config": {
+              "rows": 320,
+              "dim": 128,
+              "eps": 1e-05
+            }
+          },
+          {
+            "name": "layers.1.1",
+            "type": "gqa",
+            "activation": "uint8",
+            "config": {
+              "embed_dim": 128,
+              "seq_len": 320,
+              "n_heads": 4,
+              "n_kv_heads": 2,
+              "rope_mode": 1,
+              "qk_shift": 2,
+              "rope_base": 1e+01,
+              "window": 0,
+              "sinks": 0,
+              "smear": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "layers.2",
+      "type": "residual",
+      "activation": "uint8",
+      "config": {
+        "layers": [
+          {
+            "name": "layers.2.0",
+            "type": "rmsnorm",
+            "activation": "uint8",
+            "config": {
+              "rows": 320,
+              "dim": 128,
+              "eps": 1e-05
+            }
+          },
+          {
+            "name": "layers.2.1",
+            "type": "swiglu",
+            "activation": "uint8",
+            "config": {
+              "rows": 320,
+              "dim": 128,
+              "hidden": 256,
+              "gate_mode": 2,
+              "band": 0.5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "layers.3",
+      "type": "residual",
+      "activation": "uint8",
+      "config": {
+        "layers": [
+          {
+            "name": "layers.3.0",
+            "type": "rmsnorm",
+            "activation": "uint8",
+            "config": {
+              "rows": 320,
+              "dim": 128,
+              "eps": 1e-05
+            }
+          },
+          {
+            "name": "layers.3.1",
+            "type": "gqa",
+            "activation": "uint8",
+            "config": {
+              "embed_dim": 128,
+              "seq_len": 320,
+              "n_heads": 4,
+              "n_kv_heads": 2,
+              "rope_mode": 1,
+              "qk_shift": 2,
+              "rope_base": 1e+01,
+              "window": 0,
+              "sinks": 0,
+              "smear": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "layers.4",
+      "type": "residual",
+      "activation": "uint8",
+      "config": {
+        "layers": [
+          {
+            "name": "layers.4.0",
+            "type": "rmsnorm",
+            "activation": "uint8",
+            "config": {
+              "rows": 320,
+              "dim": 128,
+              "eps": 1e-05
+            }
+          },
+          {
+            "name": "layers.4.1",
+            "type": "swiglu",
+            "activation": "uint8",
+            "config": {
+              "rows": 320,
+              "dim": 128,
+              "hidden": 256,
+              "gate_mode": 2,
+              "band": 0.5
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "layers.5",
+      "type": "rmsnorm",
+      "activation": "uint8",
+      "config": {
+        "rows": 320,
+        "dim": 128,
+        "eps": 1e-05
+      }
+    },
+    {
+      "name": "layers.6",
+      "type": "lm_head",
+      "activation": "uint8",
+      "config": {
+        "rows": 320,
+        "dim": 128,
+        "vocab": 128
+      }
+    }
+  ]
+}
